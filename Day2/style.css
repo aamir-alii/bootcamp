@@ -1,0 +1,22 @@
+/* created by Bacha */
+:root {
+	--black: #000;
+	--white: #fff;
+	--green: #0f0;
+}
+#article1{
+	background-color:var(--white);
+	//color: var(--white);
+	}
+.article2-style{
+	color: var(--green);
+}
+.article3-style{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: 5px solid black;
+	margin: 0 10px;
+	outline: 8px solid red;
+	height: 250px;
+	width: 600px;
+}
