@@ -1,4 +1,4 @@
-// const result = document.querySelector("#result");
+const result = document.querySelector("#result");
 // result.innerText = "Hello World!"
 // result.style.fontWeight = 'bold'
 // result.style.fontSize = '24px'
@@ -31,7 +31,7 @@ if(idx > -1){
 myString.toLowerCase().indexOf(myString5);
 // split,substring,slice,indexOf,toLowerCase,
 
-let x = '5'
+let x = '5' // string (browser)
 let z = 4
 if( !isNaN(x) && !isNaN(z))
 {   
@@ -57,3 +57,10 @@ if( !isNaN(x) && !isNaN(z))
 }else{
     console.log("NaN")
 }
+
+let names = ['Ahmad', 'Ali','Khan']
+// result.innerText = names.toString();
+// names.toString();
+// console.log(names)
+// names.reverse()
+result.innerText = names.reverse();
