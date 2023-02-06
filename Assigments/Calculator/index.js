@@ -1,6 +1,8 @@
 const operands = document.getElementsByClassName("operands");
 const operators = document.getElementsByClassName("operator");
 const result = document.getElementById("result");
+let val1 = document.getElementById("val1");
+let val2 = document.getElementById("val2");
 
 
 let value;
@@ -9,8 +11,6 @@ let operator;
 for(elem of operands) {
     elem.addEventListener('click', e => {
         value = parseInt(e.target.innerText);
-        const val1 = document.getElementById("val1");
-        const val2 = document.getElementById("val2");
         result.value = "";
         if(!operator){
             val1.value += value;
@@ -22,27 +22,27 @@ for(elem of operands) {
 }
 for(let elem of operators) {
     elem.addEventListener('click', e => {
-        operator = e.target.innerText;
-        // console.log(operator)
+        if(val1.value !== "")
+             operator = e.target.innerText;
     })
 }
 
 const solve = () => {
-    const val1 = parseInt(document.getElementById("val1").value);
-    const val2 = parseInt(document.getElementById("val2").value);
+    valOne = parseInt(val1.value);
+    valTwo = parseInt(val2.value)
     let res = "";
         switch(operator){
             case '/':
-                res = val1/val2;
+                res = valOne/valTwo;
                 break;
             case 'x':
-                res = val1*val2;
+                res = valOne*valTwo;
                 break;
             case '+':
-                res = val1+val2;
+                res = valOne+valTwo;
                 break;
             case '-':
-                res = val1-val2;
+                res = valOne-valTwo;
                 break;
             default:
                 res = "";
@@ -50,7 +50,8 @@ const solve = () => {
         }
         result.value = res;
         if(res) {
-            document.getElementById("val1").value = "";
-            document.getElementById("val2").value = "";
+            val1.value = "";
+            val2.value = "";
+            operator = "";
         }
 }
