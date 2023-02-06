@@ -1,3 +1,10 @@
 Q1: Javascript is an object based language (B)
 Q2: var and let both is used to define a variable in javascript (C)
-Q3: 
+Q3: Objects are passed by reference in javascript (B)
+Q4: getEelementById or getElementsByClassName is used to access HtML Elements (C)
+Q5: const keyword declare costant variable (A)
+Q6: code output: al (A)
+Q7: code output: x+y (B)
+Q8: AJAX is about updating parts of webpage without reloading full page. (A)
+Q9: in github after add file it becomes staged (B)
+Q10: git remote add origin lets you create connection between local and remote repository. (A)
