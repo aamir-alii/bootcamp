@@ -5,7 +5,7 @@ const multiMatrices = (A,B) => {
         let result = [];
         for(let j=0;j<A[i].length; j++){
             let sum = 0;
-            for( let k = 0; k < B[0].length; k++){
+            for( let k = 0; k < B.length; k++){
                 sum += A[i][k] * B[k][j]; 
             }
             result.push(sum);

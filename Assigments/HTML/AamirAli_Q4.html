@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AamirAli_Q4.html</title>
+    <style>
+      label {
+        color: white;
+      }
+      input[type="text"] {
+        width: 90%;
+      }
+      h3 {
+        color: white;
+      }
+      .personal-statement {
+        padding: 20px 10px;
+        border: 1px solid white;
+        margin-top: 10px;
+      }
+      textarea {
+        text-align: center;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        padding: 8px 12px;
+        background-color: green;
+        color: white;
+        border: none;
+        margin-top: 5px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body style="background: blue">
+    <form action="">
+      <label for="fname"> First Name </label><br />
+      <input
+        type="text"
+        name="fnam"
+        id="fname"
+        placeholder="Enter First Name"
+      /><br /><br />
+      <label for="lname"> Last Name </label><br />
+      <input
+        type="text"
+        name="fnam"
+        id="lname"
+        placeholder="Enter Last Name"
+      /><br /><br />
+      <label for="cnic"> CNIC </label><br />
+      <input
+        type="text"
+        name="fnam"
+        id="cnic"
+        placeholder="_ _ _ _ _ - _ _ _ _ _ _ _-_"
+      /><br /><br />
+      <label for="address"> Address </label><br />
+      <input
+        type="text"
+        name="fnam"
+        id="address"
+        placeholder="Adreess"
+      /><br /><br />
+      <label for="gender">Choose Gender</label>
+      <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option></select
+      ><br /><br />
+      <h3>Marital Status</h3>
+      <label for="single">Single</label>
+      <input type="radio" name="status" id="single" />
+      <label for="divorced">Divorced</label>
+      <input type="radio" name="status" id="divorced" />
+      <label for="married">Married</label>
+      <input type="radio" name="status" id="married" /><br /><br />
+      <label for="salary">Salary</label>
+      <input type="number" placeholder="Enter Salary" /><br /><br />
+      <h3>Transportation</h3>
+      <input type="checkbox" name="transportion" id="bike" />
+      <label for="bike">Bike</label><br />
+      <input type="checkbox" name="transportion" id="car" />
+      <label for="car">Car</label><br />
+      <input type="checkbox" name="transportion" id="bus" />
+      <label for="bus">Bus</label><br />
+      <h3>Date of Birth</h3>
+      <label for="dob">Birth Day: </label
+      ><input type="date" name="dob" id="dob" />
+      <div class="personal-statement">
+        <h3>Personal Statement</h3>
+        <textarea
+          name="personal"
+          id="personal"
+          cols="100"
+          placeholder="enter personal statement"
+          rows="10"
+        ></textarea>
+      </div>
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>
