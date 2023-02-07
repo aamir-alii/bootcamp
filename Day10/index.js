@@ -40,37 +40,37 @@
 // const sq1 = new Square('',5);
 // console.log(sq1.getArea())
 
-class Series {
-    #start
-    #end
-    #valid = (s, e) => {
-        if(!isNaN(s) || !isNaN(e)) throw "Please Provide Valid Arguments"
-    }
-    constructor (s,e) {
-        this.#valid(s,e)
-        this.#start = s;
-        this.#end = e;
-    }
-    listOdd = _ => {
-        for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? console.log(i) : 0;
-        }
-    }
-    listOdd = _ => {
-        for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? console.log(i) : 0;
-        }
-    }
-    listEven = _ => {
-        for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? 0 : console.log(i);
-        }
-    }
-}
-try{
-    const series = new Series("",10);
-    series.listEven();
-    series.listOdd();
-} catch(error) {
-    console.log(error)
-}
+// class Series {
+//     #start
+//     #end
+//     #valid = (s, e) => {
+//         if(!isNaN(s) || !isNaN(e)) throw "Please Provide Valid Arguments"
+//     }
+//     constructor (s,e) {
+//         this.#valid(s,e)
+//         this.#start = s;
+//         this.#end = e;
+//     }
+//     listOdd = _ => {
+//         for(let i=this.#start; i <= this.#end; i++) {
+//             i % 2 ? console.log(i) : 0;
+//         }
+//     }
+//     listOdd = _ => {
+//         for(let i=this.#start; i <= this.#end; i++) {
+//             i % 2 ? console.log(i) : 0;
+//         }
+//     }
+//     listEven = _ => {
+//         for(let i=this.#start; i <= this.#end; i++) {
+//             i % 2 ? 0 : console.log(i);
+//         }
+//     }
+// }
+// try{
+//     const series = new Series("",10);
+//     series.listEven();
+//     series.listOdd();
+// } catch(error) {
+//     console.log(error)
+// }
