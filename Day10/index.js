@@ -53,17 +53,17 @@ class Series {
     }
     listOdd = _ => {
         for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? console.log(i) : "";
+            i % 2 ? console.log(i) : 0;
         }
     }
     listOdd = _ => {
         for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? console.log(i) : "";
+            i % 2 ? console.log(i) : 0;
         }
     }
     listEven = _ => {
         for(let i=this.#start; i <= this.#end; i++) {
-            i % 2 ? "" : console.log(i);
+            i % 2 ? 0 : console.log(i);
         }
     }
 }
