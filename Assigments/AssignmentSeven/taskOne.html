@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APOD</title>
+  </head>
+  <body>
+    <script>
+      // using xmlhttprequest
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log("OK");
+          let body = document.getElementsByTagName("body")[0];
+          body.innerHTML = `<img src=${xhr.responseText.url} alt='nasa hd picture' />`;
+        }
+      };
+      xhr.open(
+        "GET",
+        "https://api.nasa.gov/planetary/apod?api_key=nSa6HFT9XO9DaA1umtyMyeSBfh7eI9d1M0lbWpti",
+        true
+      );
+      xhr.send();
+      // console.log(xhr);
+      // using fetch
+      //   (async () => {
+      //     let response = await fetch(
+      //       "https://api.nasa.gov/planetary/apod?api_key=nSa6HFT9XO9DaA1umtyMyeSBfh7eI9d1M0lbWpti"
+      //     );
+      //     let data = await response.json();
+      //     console.log(data);
+      //     let body = document.getElementsByTagName("body")[0];
+      //     body.innerHTML = `<img src=${data.url} alt='nasa hd picture' />`;
+      //   })();
+    </script>
+  </body>
+</html>

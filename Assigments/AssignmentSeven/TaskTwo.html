@@ -1,0 +1,55 @@
+<!--  -->
+<!-- http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={a56e4c4cb228478f481e38d75f9318e2} -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" name="" placeholder="Enter City" id="city" />
+      <input type="submit" value="Search Weather" />
+    </form>
+    <h1>Weather</h1>
+    <h3>Temp: <span class="temp"></span></h3>
+    <h3>Description: <span class="humidity"></span></h3>
+    <h3>wind <span class="wind"></span></h3>
+    <script>
+      const getWeather = async (city) => {
+        const api = `http://api.openweathermap.org/data/2.5/weather?q=${city},pk&APPID=a56e4c4cb228478f481e38d75f9318e2`;
+        console.log(api);
+        //  using XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const tmp = document.querySelector(".temp");
+            const humidity = document.querySelector(".humidity");
+            const wind = document.querySelector(".wind");
+            const response = JSON.parse(xhr.responseText);
+            console.log(response);
+            tmp.innerText = response.main.temp;
+            humidity.innerText = response.weather[0].description;
+            wind.innerText = response.wind.speed;
+          }
+        };
+        xhr.open("GET", api, true);
+        xhr.send();
+        // using fetch
+        // const res = await fetch(api);
+        // const data = await res.json();
+        // console.log(data);
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // console.log("OK");
+        const city = document.querySelector("#city").value;
+        console.log(city);
+        getWeather(city);
+      };
+    </script>
+  </body>
+</html>
