@@ -7,33 +7,28 @@
     <title>APOD</title>
   </head>
   <body>
+    <div id="img"></div>
+    <p id="copyright"></p>
+    <h3 id="title"></h3>
+    <h4 id="description"></h4>
+
     <script>
-      // using xmlhttprequest
-      let xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log("OK");
-          let body = document.getElementsByTagName("body")[0];
-          body.innerHTML = `<img src=${xhr.responseText.url} alt='nasa hd picture' />`;
-        }
-      };
-      xhr.open(
-        "GET",
-        "https://api.nasa.gov/planetary/apod?api_key=nSa6HFT9XO9DaA1umtyMyeSBfh7eI9d1M0lbWpti",
-        true
-      );
-      xhr.send();
-      // console.log(xhr);
+      const img = document.querySelector("#img");
+      const copyright = document.querySelector("#copyright");
+      const title = document.querySelector("#title");
+      const desc = document.querySelector("#description");
       // using fetch
-      //   (async () => {
-      //     let response = await fetch(
-      //       "https://api.nasa.gov/planetary/apod?api_key=nSa6HFT9XO9DaA1umtyMyeSBfh7eI9d1M0lbWpti"
-      //     );
-      //     let data = await response.json();
-      //     console.log(data);
-      //     let body = document.getElementsByTagName("body")[0];
-      //     body.innerHTML = `<img src=${data.url} alt='nasa hd picture' />`;
-      //   })();
+      (async () => {
+        let response = await fetch(
+          "https://api.nasa.gov/planetary/apod?api_key=nSa6HFT9XO9DaA1umtyMyeSBfh7eI9d1M0lbWpti"
+        );
+        let data = await response.json();
+        console.log(data);
+        img.innerHTML = `<img src=${data.url} alt='nasa hd picture' />`;
+        copyright.innerText = data.copyright;
+        title.innerText = data.title;
+        desc.innerText = data.explanation;
+      })();
     </script>
   </body>
 </html>
