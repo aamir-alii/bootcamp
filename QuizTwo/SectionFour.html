@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #eeeeee;
+      }
+      #info {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+      }
+      .card {
+        background-color: white;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="fetch">Fetch</button>
+    <h1>Pets</h1>
+    <div id="info"></div>
+  </body>
+  <script>
+    let count = 1;
+    const btn = document.getElementById("fetch");
+    const getData = () => {
+      let apiURL = `https://learnwebcode.github.io/json-example/animals-${count}.json`;
+      count++;
+      fetch(apiURL)
+        .then((res) => res.json())
+        .then((pets) => {
+          document.getElementById("info");
+          pets.forEach((pet) => {
+            let likes = "";
+            let dislikes = "";
+            pet.foods.likes.forEach((like) => (likes += like + " "));
+            pet.foods.dislikes.forEach(
+              (dislike) => (dislikes += dislike + " ")
+            );
+            let html = `
+            <div class="card">
+            <h3>Name:  ${pet.name}</h3>
+            <h3>Species ${pet.species}</h3>
+            <h3>Foods</h3>
+            <h4>likes: ${likes}</h4>
+            <h4>dislikes: ${dislikes}</h4>
+            `;
+            info.innerHTML += html;
+            if (count > 3) {
+              btn.setAttribute("disabled", "true");
+            }
+          });
+        });
+    };
+
+    btn.addEventListener("click", getData);
+  </script>
+</html>

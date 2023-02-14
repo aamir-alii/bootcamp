@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <label for="dobInput">Enter your date of birth:</label>
+    <input type="date" id="dobInput" />
+    <button onclick="calculateAge()">Calculate Age</button>
+    <p id="ageResult"></p>
+    <script>
+      function calculateAge() {
+        let dob = new Date(document.getElementById("dobInput").value);
+        let today = new Date();
+        let ageInYears = today.getFullYear() - dob.getFullYear();
+        let ageInMonths = today.getMonth() + 1 - (dob.getMonth() + 1);
+        let ageInDays = today.getDate() - dob.getDate();
+        if (ageInMonths < 0 || (ageInMonths === 0 && ageInDays < 0)) {
+          ageInYears--;
+          ageInMonths += 12;
+          if (ageInDays < 0) {
+            ageInDays += new Date(
+              today.getFullYear(),
+              today.getMonth(),
+              0
+            ).getDate();
+          }
+        }
+        document.getElementById(
+          "ageResult"
+        ).innerHTML = `Your age is ${ageInYears} years, ${ageInMonths} months, and ${ageInDays} days.`;
+      }
+    </script>
+  </body>
+</html>

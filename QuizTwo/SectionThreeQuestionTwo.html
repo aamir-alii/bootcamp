@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter Number" id="number" />
+    <input type="submit" value="Sum Odd" id="submit-btn" />
+    <div class="res"></div>
+    <script>
+      const findOddSum = (_) => {
+        let number = document.querySelector("#number").value;
+        if (number.length < 5)
+          return alert("digit count must be greater than 5");
+        const numberArray = number.split("");
+        let sum = 0;
+        for (let num of numberArray) {
+          num = parseInt(num);
+          sum = num % 2 ? sum + num : sum;
+        }
+        document.getElementsByClassName("res")[0].innerText = sum;
+      };
+      document
+        .getElementById("submit-btn")
+        .addEventListener("click", findOddSum);
+    </script>
+  </body>
+</html>

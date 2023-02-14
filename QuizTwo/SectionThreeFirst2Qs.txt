@@ -1,0 +1,12 @@
+Section III  Q#1
+The main differences between arrow functions and regular functions are:
+	Syntax: Arrow functions have a shorter syntax and do not require the function keyword.
+This binding: Arrow functions do not bind their own this value, whereas regular functions have their own this value.
+Arguments object: Arrow functions do not have an argument object, unlike regular functions. Instead, you can access the arguments passed to an arrow function through the operator.
+
+
+Section III  Q#2
+Following are the ways to get an element from DOM:
+`document.getElementById()` method: This method allows you to select an element using its unique ID. The method takes the ID of the element as its parameter and returns the corresponding element.
+`document.querySelector()` method: This method allows you to select an element using a CSS selector. The method takes the CSS selector as its parameter and returns the first matching element.
+`document.getElementsByTagName()` method: This method allows you to select elements based on their tag name. The method takes the tag name as its parameter and returns a collection of all elements with that tag name.
