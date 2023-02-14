@@ -14,7 +14,11 @@
       <input type="submit" value="Search Weather" />
     </form>
     <h1>Weather</h1>
-    <h3>Temp: <span class="temp"></span></h3>
+    <h3>Actual Temp: <span class="temp"></span></h3>
+    <h3>Feels like: <span class="feels-like"></span></h3>
+    <h3>Sun Rise: <span class="sun-rise"></span></h3>
+    <h3>Sun Set: <span class="sun-set"></span></h3>
+    <h3>cordinate: <span class="coordinate"></span></h3>
     <h3>Description: <span class="humidity"></span></h3>
     <h3>wind <span class="wind"></span></h3>
     <script>
@@ -26,13 +30,33 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             const tmp = document.querySelector(".temp");
+            const feels = document.querySelector(".feels-like");
+            const sunRise = document.querySelector(".sun-rise");
+            const sunSet = document.querySelector(".sun-set");
+            const coordinate = document.querySelector(".coordinate");
             const humidity = document.querySelector(".humidity");
             const wind = document.querySelector(".wind");
             const response = JSON.parse(xhr.responseText);
             console.log(response);
-            tmp.innerText = response.main.temp;
+            tmp.innerText = parseInt(response.main.temp - 273.15);
+            feels.innerText = parseInt(response.main.feels_like - 273.15);
+            let sunrise = new Date(response.sys.sunrise);
+            let hour = sunrise.getHours() % 12 || 12;
+            if ( hour < 10)
+              hour = `0${hour}`
+            let minute = sunrise.getMinutes();
+            sunRise.innerText = `${hour} : ${minute}`
+            let sunset = new Date(response.sys.sunset);
+            hour = sunset.getHours() % 12 || 12;
+            if ( hour < 10)
+              hour = `0${hour}`;
+            minute = sunset.getMinutes();
+            sunSet.innerText = `${hour} : ${minute}`
             humidity.innerText = response.weather[0].description;
             wind.innerText = response.wind.speed;
+            let coord = response.coord;
+            coordinate.innerText = `Long: ${coord.lon} Latitude: ${coord.lat}`;
+            
           }
         };
         xhr.open("GET", api, true);
@@ -47,7 +71,6 @@
         e.preventDefault();
         // console.log("OK");
         const city = document.querySelector("#city").value;
-        console.log(city);
         getWeather(city);
       };
     </script>
