@@ -1,3 +1,0 @@
-Q1: Javascript is an object based language (B)
-Q2: var and let both is used to define a variable in javascript (C)
-Q3: 
